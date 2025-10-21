@@ -7,6 +7,10 @@ server.get('/', (req, res) => {
     console.log("Working!")
 })
 
+server.get('/status', (req, res) => {
+
+})
+
 
 server.listen(8000, () => {
     console.log(`Server Running on port ${port} `)
