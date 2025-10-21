@@ -1,0 +1,53 @@
+html {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #316688;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.dados-sensores {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.sensor p#vagas-livres {
+    color: green;
+}
+
+.sensor p#vagas-ocupadas {
+    color: red;
+}
+
+.sensor p#total-vagas {
+    color: blue;
+}
+
+.sensor {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sensor h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.sensor p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #316688;
+}
