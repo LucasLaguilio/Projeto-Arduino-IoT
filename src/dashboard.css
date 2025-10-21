@@ -46,6 +46,31 @@ header{
     box-shadow:0 4px 8px rgba(0,0,0,0.1);
 }
 
+.conexão {
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    padding: 16px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--muted);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.conexão h2 {
+    margin: 0 0 0.8rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.conexão p {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.2;
+}
+
 .dados-sensores{
     max-width:1200px;
     margin:2rem auto;
