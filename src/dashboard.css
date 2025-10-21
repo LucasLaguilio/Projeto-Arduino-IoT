@@ -3,36 +3,67 @@ html {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+
+}
+
+.container-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
 }
 
 header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #316688;
     color: #ffffff;
-    padding: 20px 0;
+    padding: 10px 0px;
     text-align: center;
+    font-size: 14px;
+}
+
+header h2 {
+    margin: 0;
+    display: flex;
 }
 
 .dados-sensores {
-    margin-top: 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    max-width: 800px;
+    margin: 0 auto ;
+    margin-top: 200px;
 
 }
 
-.sensor p#vagas-livres {
+.Livres p#vagas-livres {
     color: green;
 }
 
-.sensor p#vagas-ocupadas {
+.Ocupadas p#vagas-ocupadas {
     color: red;
 }
 
-.sensor p#total-vagas {
+.Total p#total-vagas {
     color: blue;
 }
 
-.sensor {
+.Livres h2 {
+    color: green;
+}
+
+.Ocupadas h2 {
+    color: red;
+}
+
+.Total h2 {
+    color: blue;
+}
+
+.Livres, .Ocupadas, .Total {
     background-color: #ffffff;
     border: 1px solid #dddddd;
     border-radius: 5px;
@@ -41,13 +72,25 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.sensor h2 {
+.Livres h2, .Ocupadas h2, .Total h2 {
     margin: 0 0 10px;
     font-size: 18px;
 }
 
-.sensor p {
+.Livres p, .Ocupadas p, .Total p {
     font-size: 24px;
     font-weight: bold;
     color: #316688;
+}
+
+@media screen and (max-width: 768px) {
+    .dados-sensores {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Livres, .Ocupadas, .Total {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
