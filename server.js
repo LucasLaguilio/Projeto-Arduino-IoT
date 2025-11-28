@@ -5,42 +5,39 @@ const port = 8000
 server.get('/', (req, res) => {
     res.send("Working!")
     console.log("Working!")
-    fetch ('http://localhost:5000/arduino')
+    fetch ('http://192.168.1.100/dados')
     .then(response => {
         if (response.ok) {
-            console.log(`Arduino connected, status code: ${response.status}`);
+            console.log(`esp32 connected, status code: ${response.status}`);
         } else {
-            console.log(`Arduino Not Found, status code: ${response.status}`);
+            console.log(`esp32, status code: ${response.status}`);
         }
     })
     .catch(error => {
-        console.error('Error fetching Arduino status:', error);
+        console.error('Error fetching esp32 status:', error);
     });
 
 })
 
 const cors = require('cors');
 server.use(cors({
-    origin: 'http://localhost:5500', 
-    origin: 'http://localhost:5000/arduino'
+    origin: 'http://192.168.1.100',
+    origin: "http://127.0.0.1:5500"
 }));
 
 
 
-server.get('/status', (_req, res) => {
+server.get('/esp32', async (_req, res) => {
     try {
-        if (res.status(200)) {
-            setTimeout(() => {
-                res.send(`Conectado, status code: ${res.statusCode}`);
-                // console.log(`Server is up and running, status code: ${res.statusCode}`);
-            }, 1000);
-        } else {
-            res.status(404).send(`Not Found, status code: ${res.statusCode}`);
-            console.log(`Not Found, status code: ${res.statusCode}`);   
+        const responses = await fetch("http://192.168.1.100/dados");
+        const datas = await responses.json()
+        res.status(200).json(datas);
+        
+        
+    } catch (error) {
+        if (res.status != 200) {
+            res.send("Something went wrong.")
         }
-    } catch (err) {
-        res.status(500).send(`Server error, status code: ${res.statusCode}`);
-        console.log(`Server error, status code: ${res.statusCode}`, err);
     }
 });
 
