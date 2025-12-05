@@ -21,15 +21,14 @@ server.get('/', (req, res) => {
 
 const cors = require('cors');
 server.use(cors({
-    origin: 'http://192.168.1.100',
-    origin: "http://127.0.0.1:5500"
+    origin: '*'
 }));
 
 
 
 server.get('/esp32', async (_req, res) => {
     try {
-        const responses = await fetch("http://192.168.1.100/dados");
+        const responses = await fetch("http://192.168.0.100/dados");
         const datas = await responses.json()
         res.status(200).json(datas);
         
