@@ -24,19 +24,26 @@ server.use(cors({
     origin: '*'
 }));
 
+// teste simulando esp
+server.get('/dados', async (_req, res) => {
+    const a = Math.floor(Math.random() * 100)
+    const b = Math.floor(Math.random() * 100);
+
+    const jsondata = {
+        sensor1: a,
+        sensor2: b
+    };
+    res.status(200).send(jsondata);
+});
 
 
 server.get('/esp32', async (_req, res) => {
     try {
-        const responses = await fetch("http://192.168.0.100/dados");
-        const datas = await responses.json()
-        res.status(200).json(datas);
-        
-        
+        const responses = await fetch("http://localhost:8000/dados");
+        const datas = await responses.text();
+        res.status(200).send(datas);
     } catch (error) {
-        if (res.status != 200) {
-            res.send("Something went wrong.")
-        }
+        res.status(500).send("Something went wrong.")
     }
 });
 

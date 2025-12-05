@@ -14,9 +14,13 @@
      </header>
      <main> 
         <div class="dados-sensores">
+            <div class="Sensor"> 
+                 <h2>Valor do sensor 1</h2>
+                  <p id="valor"></p>
+                  <h2>Valor do sensor 2</h2>
+                  <p id="valor2"></p>
+            </div>
             <div class="Livres" >
-                <h2>Valor do sensor: </h2>
-                <p id="valor"></p>
                 <h2>Vagas Livres</h2>
                 <p id="vagas-livres"></p>
             </div>
@@ -24,15 +28,8 @@
                 <h2>Vagas Ocupadas</h2>
                 <p id="vagas-ocupadas"></p>
             </div>
-            <div class="Total">
-                <h2>Total de Vagas</h2>
-                <p id="total-vagas"></p>
-            </div>
         </div>
-        <div class="conexão">
-            <h2>Status da Conexão com o Arduino:</h2>
-            <p id="status-conexao">-</p>
-        </div>
+
      </main>
      <script src="/src/dashboard.js"></script>
 </body>
